@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myspringboot.demo.mapper.MasterMapper">
+
+    <!-- SQL Query to select a user by ID -->
+    <select id="Listallmaster" resultType="com.myspringboot.demo.model.Master">
+        SELECT * FROM DATAMASTER
+    </select>
+
+    <!-- SQL Query to insert a new user -->
+    <insert id="saveMaster" parameterType="com.myspringboot.demo.model.Master">
+        INSERT INTO DATAMASTER (code, name, caption, status, type)
+        VALUES (#{code}, #{name}, #{caption}, #{status}, #{type});
+    </insert>
+
+    <!-- SQL Query to Update user -->
+    <update id="updateMaster" parameterType="map">
+        UPDATE DATAMASTER
+        SET
+        code = #{master.code},
+        name = #{master.name},
+        caption = #{master.caption},
+        status = #{master.status},
+        type = #{master.type}
+        WHERE id = #{id};
+    </update>
+
+    <!-- SQL Query to Delete user -->
+    <delete id="deleteMaster" parameterType="Long">
+        DELETE FROM DATAMASTER
+        WHERE id = #{id};
+    </delete>
+
+</mapper>

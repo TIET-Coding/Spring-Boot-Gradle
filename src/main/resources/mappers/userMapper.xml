@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myspringboot.demo.mapper.UserMapper">
+
+    <!-- SQL Query to select a user by ID -->
+    <select id="Listalluser" resultType="com.myspringboot.demo.model.User">
+        SELECT * FROM USER
+    </select>
+    <!-- SQL Query to insert a new user -->
+    <insert id="saveUser" parameterType="com.myspringboot.demo.model.User">
+            INSERT INTO USER (username, branch, position, phone, email)
+            VALUES (#{username}, #{branch}, #{position}, #{phone}, #{email});
+    </insert>
+    <!-- SQL Query to Update user -->
+    <update id="updateUser" parameterType="map">
+        UPDATE USER
+        SET username = #{user.username},
+        branch = #{user.branch},
+        position = #{user.position},
+        phone = #{user.phone},
+        email = #{user.email}
+        WHERE user_id = #{user_id};
+    </update>
+    <!-- SQL Query to Delete user -->
+    <delete id="deleteUser" parameterType="long">
+        DELETE FROM USER WHERE user_id = #{user_id};
+    </delete>
+</mapper>
