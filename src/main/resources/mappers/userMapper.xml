@@ -6,25 +6,27 @@
 
     <!-- SQL Query to select a user by ID -->
     <select id="Listalluser" resultType="com.myspringboot.demo.model.User">
-        SELECT * FROM USER
+        SELECT * FROM USERS
     </select>
     <!-- SQL Query to insert a new user -->
     <insert id="saveUser" parameterType="com.myspringboot.demo.model.User">
-            INSERT INTO USER (username, branch, position, phone, email)
-            VALUES (#{username}, #{branch}, #{position}, #{phone}, #{email});
+            INSERT INTO USERS (first_name,last_name,username, email, role_id, password)
+            VALUES (#{first_name}, #{last_name}, #{username},#{email}, #{role_id}, #{password});
     </insert>
     <!-- SQL Query to Update user -->
     <update id="updateUser" parameterType="map">
-        UPDATE USER
-        SET username = #{user.username},
-        branch = #{user.branch},
-        position = #{user.position},
-        phone = #{user.phone},
-        email = #{user.email}
+        UPDATE USERS
+        SET
+        first_name = #{users.first_name},
+        last_name = #{users.last_name},
+        username = #{users.username},
+        email = #{users.email},
+        role_id = #{users.role_id}
+        password ={users.password}
         WHERE user_id = #{user_id};
     </update>
     <!-- SQL Query to Delete user -->
     <delete id="deleteUser" parameterType="long">
-        DELETE FROM USER WHERE user_id = #{user_id};
+        DELETE FROM USERS WHERE user_id = #{user_id};
     </delete>
 </mapper>
