@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myspringboot.demo.mapper.PermissionsMapper">
+
+    <!-- SQL Query to select a user by ID -->
+    <select id="Listallpermission" resultType="com.myspringboot.demo.model.Permissions">
+        SELECT * FROM permissions
+    </select>
+    <!-- SQL Query to insert a new user -->
+    <insert id="savePermissions" parameterType="com.myspringboot.demo.model.Permissions">
+        INSERT INTO permissions (p_name,p_code)
+        VALUES (#{p_name}, #{p_code});
+    </insert>
+    <!-- SQL Query to Update user -->
+    <update id="updatePermissions" parameterType="map">
+        UPDATE permissions
+        SET
+        p_name = #{permissions.p_name},
+        p_code = #{permissions.p_code}
+        WHERE p_id = #{p_id};
+    </update>
+    <!-- SQL Query to Delete user -->
+    <delete id="deletePermissions" parameterType="long">
+        DELETE FROM permissions WHERE p_id = #{p_id};
+    </delete>
+</mapper>
