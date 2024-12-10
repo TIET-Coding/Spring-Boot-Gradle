@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myspringboot.demo.mapper.RoleMapper">
+
+    <!-- Query to list all roles -->
+    <select id="listallrole" resultType="com.myspringboot.demo.model.Role">
+        SELECT * FROM role;
+    </select>
+
+    <!-- Insert role -->
+    <insert id="saveroles" parameterType="com.myspringboot.demo.model.Role">
+        INSERT INTO role (r_name, r_code, discription, create_date, create_by, update_date, update_by)
+        VALUES (#{r_name}, #{r_code}, #{discription}, #{create_date}, #{create_by}, #{update_date}, #{update_by});
+    </insert>
+
+    <!-- Update role -->
+    <update id="updateroles" parameterType="map">
+        UPDATE role
+        SET
+        r_name = #{role.r_name},
+        r_code = #{role.r_code},
+        discription = #{role.discription},
+        update_date = #{role.update_date},
+        update_by = #{role.update_by}
+        WHERE r_id = #{r_id};
+    </update>
+
+    <!-- Delete role -->
+    <delete id="deleteroles" parameterType="Long">
+        DELETE FROM role WHERE r_id = #{r_id};
+    </delete>
+
+</mapper>
