@@ -6,6 +6,7 @@
 
     <!-- Define type aliases for domain classes -->
     <typeAliases>
+
         <typeAlias alias="Integer" type="java.lang.Integer"/>
         <typeAlias alias="Long" type="java.lang.Long"/>
         <typeAlias alias="HashMap" type="java.util.HashMap"/>
@@ -16,6 +17,7 @@
         <typeAlias alias="Roleuser" type="com.myspringboot.demo.model.RoleUser"/>
         <typeAlias alias="Permissions" type="com.myspringboot.demo.model.Permissions"/>
         <typeAlias alias="Roles" type="com.myspringboot.demo.model.Role"/>
+        <typeAlias alias="Rolespermissions" type="com.myspringboot.demo.model.RolePermissions"/>
 
     </typeAliases>
 

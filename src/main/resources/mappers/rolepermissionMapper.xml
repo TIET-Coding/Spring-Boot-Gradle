@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myspringboot.demo.mapper.RolePermissionsMapper">
+
+    <!-- Query to list all role permissions -->
+    <select id="Listallrolepermissions" resultType="com.myspringboot.demo.model.RolePermissions">
+        SELECT * FROM role_permissions
+    </select>
+
+    <!-- Insert a role permission -->
+    <insert id="Saverolepermission" parameterType="com.myspringboot.demo.model.RolePermissions">
+        INSERT INTO role_permissions (r_id, p_id)
+        VALUES (#{r_id},#{p_id});
+    </insert>
+
+    <!-- Update a role permission -->
+    <update id="Updaterolpermission" parameterType="map">
+        UPDATE role_permissions
+        SET
+        r_id = #{rolePermissions.r_id},
+        p_id = #{rolePermissions.p_id},
+        WHERE role_p_id = #{role_p_id};
+    </update>
+
+    <!-- Delete a role permission -->
+    <delete id="Deleterolpermission" parameterType="long">
+        DELETE FROM role_permissions WHERE role_p_id = #{role_p_id};
+    </delete>
+
+</mapper>
