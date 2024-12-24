@@ -18,6 +18,8 @@
         <typeAlias alias="Permissions" type="com.myspringboot.demo.model.Permissions"/>
         <typeAlias alias="Roles" type="com.myspringboot.demo.model.Role"/>
         <typeAlias alias="Rolespermissions" type="com.myspringboot.demo.model.RolePermissions"/>
+        <typeAlias alias="Classes" type="com.myspringboot.demo.model.Classes"/>
+        <typeAlias alias="Schools" type="com.myspringboot.demo.model.Schools"/>
 
     </typeAliases>
 

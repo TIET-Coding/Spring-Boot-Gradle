@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myspringboot.demo.mapper.ClasseMapper">
+
+    <!-- SQL Query to select a user by ID -->
+    <select id="listallclasses" resultType="com.myspringboot.demo.model.Classes">
+        SELECT * FROM Classes
+    </select>
+
+    <!-- SQL Query to insert a new Classes -->
+    <insert id="saveClasses" parameterType="com.myspringboot.demo.model.Classes">
+        INSERT INTO Classes (CL_Name,TH_ID,SCH_ID)
+        VALUES (#{CL_Name},#{TH_ID},#{SCH_ID})
+    </insert>
+
+    <!-- SQL Query to Update user -->
+    <update id="updateClasses" parameterType="map">
+        UPDATE Classes
+        SET CL_Name = #{CL_Name}, TH_ID = #{TH_ID}, SCH_ID = #{SCH_ID}
+        WHERE CL_ID = #{CL_ID}
+    </update>
+
+    <!-- SQL Query to Delete user -->
+    <delete id="deleteClasses" parameterType="Long">
+        DELETE FROM Classes WHERE CL_ID = #{CL_ID}
+    </delete>
+
+</mapper>
