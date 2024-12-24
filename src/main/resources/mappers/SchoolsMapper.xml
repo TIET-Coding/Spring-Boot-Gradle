@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myspringboot.demo.mapper.SchoolsMapper">
+
+    <!-- Query to list all  Schools -->
+    <select id="listallSchools" resultType="com.myspringboot.demo.model.Schools">
+        SELECT * FROM Schools
+    </select>
+
+    <!-- Insert a Schools -->
+    <insert id="saveSchools" parameterType="com.myspringboot.demo.model.Schools">
+        INSERT INTO Schools (SCH_Name,Address,ContactNumber,EstablishedYear)
+        VALUES (#{SCH_Name},#{Address},#{ContactNumber},#{EstablishedYear});
+    </insert>
+
+    <!-- Update a Schools -->
+    <update id="updateSchools" parameterType="map">
+        UPDATE Schools
+        SET
+        SCH_Name=#{schools.SCH_Name},
+        Address=#{schools.Address},
+        ContactNumber=#{schools.ContactNumber},
+        EstablishedYear=#{schools.EstablishedYear}
+        WHERE SCH_ID=#{SCH_ID};
+    </update>
+
+    <!-- Delete a  Schools -->
+    <delete id="deleteSchools" parameterType="long">
+        DELETE FROM Schools WHERE SCH_ID = #{SCH_ID}
+    </delete>
+
+</mapper>
