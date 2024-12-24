@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myspringboot.demo.mapper.TeachersMapper">
+
+    <!-- Query to list all teachers -->
+    <select id="listallTeachers" resultType="com.myspringboot.demo.model.Teachers">
+        SELECT * FROM Teachers;
+    </select>
+
+    <!-- Query to save a new teacher -->
+    <insert id="saveTeacher" parameterType="com.myspringboot.demo.model.Teachers">
+        INSERT INTO Teachers (FirstName, LastName, Qualification,HireDate,SJ_ID,SCH_ID)
+        VALUES (#{FirstName}, #{LastName}, #{Qualification},#{HireDate}, #{SJ_ID}, #{SCH_ID});
+    </insert>
+
+    <!-- Query to update an existing teacher -->
+    <update id="updateTeacher" parameterType="map">
+        UPDATE Teachers
+        SET FirstName = #{teachers.FirstName},
+        LastName = #{teachers.LastName},
+        Qualification = #{teachers.Qualification},
+        HireDate = #{teachers.HireDate},
+        SJ_ID = #{teachers.SJ_ID},
+        SCH_ID = #{teachers.SCH_ID}
+        WHERE TH_ID = #{TH_ID};
+    </update>
+
+    <!-- Query to delete a teacher by ID -->
+    <delete id="deleteTeacher" parameterType="long">
+        DELETE FROM Teachers WHERE TH_ID = #{TH_ID};
+    </delete>
+
+</mapper>
