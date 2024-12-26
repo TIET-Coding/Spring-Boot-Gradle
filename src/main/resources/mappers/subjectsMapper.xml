@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myspringboot.demo.mapper.SubjectsMapper">
+
+    <!-- Query to list all subjects -->
+    <select id="listallSubjects" resultType="com.myspringboot.demo.model.Subjects">
+        SELECT * FROM subjects;
+    </select>
+
+    <!-- Query to save a new subject -->
+    <insert id="saveSubjects" parameterType="com.myspringboot.demo.model.Subjects">
+        INSERT INTO subjects (SJ_Name, Description)
+        VALUES (#{SJ_Name}, #{Description});
+    </insert>
+
+    <!-- Query to update an existing subject -->
+    <update id="updateSubjects" parameterType="map">
+        UPDATE subjects
+        SET SJ_Name = #{subjects.SJ_Name}, Description = #{subjects.Description}
+        WHERE SJ_ID = #{SJ_ID};
+    </update>
+
+    <!-- Query to delete a subject by ID -->
+    <delete id="deleteSubjects" parameterType="long">
+        DELETE FROM subjects WHERE SJ_ID = #{SJ_ID};
+    </delete>
+
+</mapper>
