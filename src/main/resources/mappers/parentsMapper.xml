@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myspringboot.demo.mapper.ParentsMapper">
+
+    <!-- List all parents -->
+    <select id="listallparents" resultType="com.myspringboot.demo.model.Parents">
+        SELECT * FROM Parents;
+    </select>
+
+    <!-- Save a new parent -->
+    <insert id="saveParents" parameterType="com.myspringboot.demo.model.Parents">
+        INSERT INTO Parents (FirstName, LastName, ContactNumber,Email)
+        VALUES (#{FirstName}, #{LastName}, #{ContactNumber}, #{Email});
+    </insert>
+
+    <!-- Update a parent -->
+    <update id="updateParents" parameterType="map">
+        UPDATE Parents
+        SET FirstName = #{parents.FirstName},
+        LastName = #{parents.LastName},
+        ContactNumber = #{parents.ContactNumber},
+        Email = #{parents.Email}
+        WHERE P_ID = #{P_ID};
+    </update>
+
+    <!-- Delete a parent -->
+    <delete id="deleteParents" parameterType="long">
+        DELETE FROM Parents WHERE P_ID = #{P_ID};
+    </delete>
+
+    <!-- Find a parent by ID -->
+</mapper>
