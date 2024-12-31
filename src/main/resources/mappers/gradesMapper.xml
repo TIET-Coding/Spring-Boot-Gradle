@@ -1,0 +1,33 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myspringboot.demo.mapper.GradesMapper">
+
+    <!-- List all grades -->
+    <select id="listAllGrades" resultType="com.myspringboot.demo.model.Grades">
+        SELECT * FROM Grades;
+    </select>
+
+    <!-- Insert a new grade -->
+    <insert id="saveGrades" parameterType="com.myspringboot.demo.model.Grades">
+        INSERT INTO grades (SD_ID, SJ_ID ,Marks ,Grade)
+        VALUES (#{SD_ID}, #{SJ_ID}, #{Marks}, #{Grade});
+    </insert>
+
+    <!-- Update an existing grade -->
+    <update id="updateGrades" parameterType="map">
+        UPDATE grades
+            SET SD_ID = #{grades.SD_ID},
+                SJ_ID = #{grades.SJ_ID},
+                Marks = #{grades.Marks},
+                Grade = #{grades.Grade}
+            WHERE G_ID = #{G_ID};
+    </update>
+
+    <!-- Delete a grade -->
+    <delete id="deleteGrades" parameterType="long">
+        DELETE FROM grades WHERE G_ID = #{G_ID};
+    </delete>
+
+</mapper>
