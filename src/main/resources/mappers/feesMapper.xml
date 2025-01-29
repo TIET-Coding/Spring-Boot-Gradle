@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myspringboot.demo.mapper.FeesMapper">
+
+    <!-- Select All Fees -->
+    <select id="listallFees" resultType="com.myspringboot.demo.model.Fees">
+        SELECT * FROM Fees;
+    </select>
+
+    <!-- Insert Fees -->
+    <insert id="saveFees" parameterType="com.myspringboot.demo.model.Fees">
+        INSERT INTO Fees (SD_ID, Amount, DueDate, PaymentStatus)
+        VALUES (#{SD_ID}, #{Amount}, #{DueDate}, #{PaymentStatus});
+    </insert>
+
+    <!-- Update Fees -->
+    <update id="updateFees" parameterType="map">
+        UPDATE Fees
+        SET
+        SD_ID = #{fees.SD_ID},
+        Amount = #{fees.Amount},
+        DueDate = #{fees.DueDate},
+        PaymentStatus = #{fees.PaymentStatus}
+        WHERE F_ID = #{F_ID};
+    </update>
+
+    <!-- Delete Fees -->
+    <delete id="deleteFees">
+        DELETE FROM FEES WHERE F_ID = #{F_ID};
+    </delete>
+
+</mapper>
