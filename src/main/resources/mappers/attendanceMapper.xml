@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myspringboot.demo.mapper.AttendanceMapper">
+
+    <!-- Retrieve all attendance records -->
+    <select id="listallAttendance" resultType="com.myspringboot.demo.model.Attendance">
+        SELECT * FROM Attendance;
+    </select>
+
+    <!-- Save attendance record -->
+    <insert id="saveAttendance" parameterType="com.myspringboot.demo.model.Attendance">
+        INSERT INTO Attendance ( SD_ID, CL_ID, Date, Status)
+        VALUES (#{SD_ID}, #{CL_ID}, #{Date}, #{Status} );
+    </insert>
+
+    <!-- Update attendance record -->
+    <update id="updateAttendance" parameterType="map">
+        UPDATE Attendance
+        SET
+        SD_ID = #{attendance.SD_ID},
+        CL_ID = #{attendance.CL_ID},
+        Date = #{attendance.Date},
+        Status = #{attendance.Status}
+        WHERE A_ID = #{A_ID};
+    </update>
+
+    <!-- Delete attendance record -->
+    <delete id="deleteAttendance" parameterType="long">
+        DELETE FROM Attendance
+        WHERE A_ID = #{A_ID};
+    </delete>
+
+</mapper>

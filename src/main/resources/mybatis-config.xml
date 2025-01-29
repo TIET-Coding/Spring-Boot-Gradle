@@ -24,6 +24,7 @@
         <typeAlias alias="Subjects" type="com.myspringboot.demo.model.Subjects"/>
         <typeAlias alias="Parents" type="com.myspringboot.demo.model.Parents"/>
         <typeAlias alias="Grades" type="com.myspringboot.demo.model.Grades"/>
+        <typeAlias alias="Attendance" type="com.myspringboot.demo.model.Attendance"/>
     </typeAliases>
 
     <!-- Other settings go here -->
